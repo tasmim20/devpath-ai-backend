@@ -130,7 +130,10 @@ export class AiService {
   constructor(private configService: ConfigService) {
     const apiKey = this.configService.get<string>('GOOGLE_GEMINI_KEY');
     if (!apiKey) throw new Error('GOOGLE_GEMINI_KEY is not defined in .env');
-
+    console.log(
+      'GOOGLE_GEMINI_KEY:',
+      process.env.GOOGLE_GEMINI_KEY ? 'OK' : 'MISSING',
+    );
     this.genAI = new GoogleGenerativeAI(apiKey);
 
     /* ===============================
