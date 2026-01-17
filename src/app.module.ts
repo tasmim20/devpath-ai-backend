@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { AiModule } from './ai/ai.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
@@ -12,6 +14,8 @@ import { AiModule } from './ai/ai.module';
       isGlobal: true, // makes env variables available everywhere
     }),
     AiModule,
+    BlogModule,
+    MongooseModule.forRoot(process.env.MONGO_URI as string),
   ],
   controllers: [AppController],
   providers: [AppService],
