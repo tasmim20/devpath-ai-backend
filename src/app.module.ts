@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AiModule } from './ai/ai.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BlogModule } from './blog/blog.module';
+import { CompaniesModule } from './companies/companies.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BlogModule } from './blog/blog.module';
     }),
     AiModule,
     BlogModule,
+    CompaniesModule,
     MongooseModule.forRoot(process.env.MONGO_URI as string),
   ],
   controllers: [AppController],
